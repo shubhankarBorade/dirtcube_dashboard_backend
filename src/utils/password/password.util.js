@@ -22,3 +22,5 @@ passwordUtil.getHashedPassword = (password) => {
       }
    });
 };
+
+module.exports = passwordUtil;

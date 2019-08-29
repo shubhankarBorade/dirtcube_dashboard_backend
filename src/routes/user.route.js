@@ -20,7 +20,7 @@ app.route(routesNames.user)
           const newCreatedUser = await userController.create(role, fullName, username, email, password);
           return res.status(200).json(newCreatedUser);
        } catch (e) {
-          return res.status(e.ErrorCode ? e.ErrorCode : 500).json(e ? e : "Internal server error");
+          return res.status(e.code ? e.code : 500).json(e ? e : "Internal server error");
        }
     });
 

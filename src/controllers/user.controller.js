@@ -16,7 +16,8 @@ userController.create = (role, fullName, username, email, password) => {
 
          const {salt, hashedPassword} = await passwordUtil.getHashedPassword(password);
          const newlyCreatedUser = await userUtil.createUser(role, fullName, username, email, hashedPassword, salt);
-         return resolve(newlyCreatedUser);
+         const userWithoutSensitiveInfo = await userUtil.getUserWithoutSensitiveInfo(newlyCreatedUser.toObject());
+         return resolve(userWithoutSensitiveInfo);
       } catch (e) {
          console.log(e);
          return reject(e);

@@ -13,5 +13,16 @@ otherUtil.convertBufferToString = (buffer) => {
    })
 };
 
+otherUtil.buildErrorMessage = (code) => {
+  switch (code) {
+     case 400 :
+        return {code : 400, error : "bad request"};
+     case 401 :
+        return {code : 401, error : "Authentication error"};
+     default:
+        return {code : 500, error : "Internal server error"};
+  }
+};
+
 
 module.exports = otherUtil;
