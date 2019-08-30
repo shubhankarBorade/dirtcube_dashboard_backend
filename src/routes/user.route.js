@@ -2,16 +2,21 @@ const express = require("express");
 const app = express();
 const routesNames = require("../routeNames");
 const userController = require("../controllers/user.controller");
+const multer = require("multer");
+const upload = multer();
 
 
 app.route(routesNames.user)
-    .post(async (req, res) => {
+    .post(upload.any(), async (req, res) => {
        try {
           const role = req.body.role ? req.body.role : "user";
           const fullName = req.body.fullName ? req.body.fullName : null;
           const username = req.body.username ? req.body.username : null;
           const email = req.body.email ? req.body.email : null;
           const password = req.body.password ? req.body.password : null;
+
+          console.log("req.body", req.body);
+
 
           if (!role || !fullName || !username || !email || !password) {
              return res.status(400).json({Error: "missing values"});
