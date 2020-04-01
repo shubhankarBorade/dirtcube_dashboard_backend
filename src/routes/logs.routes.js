@@ -8,6 +8,7 @@ app.route('/logs')
 
         const foundLogs =  await Log.find(queryObject);
         console.log('foundLogs', foundLogs);
+        return res.json(foundLogs);
     });
 
 module.exports = app;
