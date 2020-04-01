@@ -5,7 +5,7 @@ const app = express();
 const config = require("./config");
 
 const userRoutes = require("./routes/user.route");
-
+const logRoutes = require('./routes/logs.routes');
 
 const server = {};
 
@@ -20,6 +20,7 @@ server.init = () => {
    });
 
    app.use(userRoutes);
+   app.use(logRoutes);
 
    app.get("/", (req, res) => {
       res.send("Hello World!");

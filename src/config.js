@@ -1,6 +1,6 @@
 const config = {
    PORT : 5000,
-   mongodbURL : "mongodb://shubh:shubh1997@localhost:27017/capshot_admin?authSource=capshot_admin"
+   mongodbURL : "mongodb+srv://admin:capshot_admin%402019@capshot-ixkc1.mongodb.net/capshot?authSource=admin&replicaSet=Capshot-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true"
 };
 
 
